@@ -1,0 +1,358 @@
+fileFormatVersion: 2
+guid: b331c51f89a285a4b8ce9f55dc26e1c2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 387420974550477462
+    second: PlayerChop_0
+  - first:
+      213: 8527846345298604739
+    second: PlayerChop_1
+  - first:
+      213: -9223291527744237904
+    second: PlayerChop_2
+  - first:
+      213: 3889877723762908111
+    second: PlayerChop_3
+  - first:
+      213: 8744997335482075100
+    second: PlayerChop_4
+  - first:
+      213: 2724776632122137207
+    second: PlayerChop_5
+  - first:
+      213: -8004285194585472935
+    second: PlayerChop_6
+  - first:
+      213: 5897008662225800922
+    second: PlayerChop_7
+  - first:
+      213: 9098921590180516239
+    second: PlayerChop_8
+  - first:
+      213: -7932064257325447548
+    second: PlayerChop_9
+  - first:
+      213: 6505714966654702373
+    second: PlayerChop_10
+  - first:
+      213: -6757432512766338725
+    second: PlayerChop_11
+  - first:
+      213: 7890003044701348481
+    second: PlayerChop_12
+  - first:
+      213: 2715102994185086484
+    second: PlayerChop_13
+  - first:
+      213: 541525256014875267
+    second: PlayerChop_14
+  - first:
+      213: -8913216545602449216
+    second: PlayerChop_15
+  - first:
+      213: 5159961446520844039
+    second: PlayerChop_16
+  - first:
+      213: -1925856930743665555
+    second: PlayerChop_17
+  - first:
+      213: -4172905725617315206
+    second: PlayerChop_18
+  - first:
+      213: -823469571420097377
+    second: PlayerChop_19
+  - first:
+      213: 7508252803391358315
+    second: PlayerChop_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 4
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 380
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PlayerChop_0
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 738
+        width: 380
+        height: 380
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69aed9ed255606500800000000000000
+      internalID: 387420974550477462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerChop_1
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 739
+        width: 380
+        height: 380
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c2f2ae811ff85670800000000000000
+      internalID: 8527846345298604739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerChop_2
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 738
+        width: 380
+        height: 380
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0be4fecf839400080800000000000000
+      internalID: -9223291527744237904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerChop_3
+      rect:
+        serializedVersion: 2
+        x: 2098
+        y: 738
+        width: 284
+        height: 380
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcbd7982e2f9bf530800000000000000
+      internalID: 3889877723762908111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerChop_4
+      rect:
+        serializedVersion: 2
+        x: 2738
+        y: 738
+        width: 284
+        height: 380
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd7852f5eb87c5970800000000000000
+      internalID: 8744997335482075100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerChop_5
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 103
+        width: 380
+        height: 380
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48700544}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77adce119e950d520800000000000000
+      internalID: 2724776632122137207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerChop_8
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 98
+        width: 209
+        height: 380
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8197d56afcd54e70800000000000000
+      internalID: 9098921590180516239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: eae7ebd39e7126847b40e86f90362754
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      PlayerChop_0: 387420974550477462
+      PlayerChop_1: 8527846345298604739
+      PlayerChop_10: 6505714966654702373
+      PlayerChop_11: -6757432512766338725
+      PlayerChop_12: 7890003044701348481
+      PlayerChop_13: 2715102994185086484
+      PlayerChop_14: 541525256014875267
+      PlayerChop_15: -8913216545602449216
+      PlayerChop_16: 5159961446520844039
+      PlayerChop_17: -1925856930743665555
+      PlayerChop_18: -4172905725617315206
+      PlayerChop_19: -823469571420097377
+      PlayerChop_2: -9223291527744237904
+      PlayerChop_20: 7508252803391358315
+      PlayerChop_3: 3889877723762908111
+      PlayerChop_4: 8744997335482075100
+      PlayerChop_5: 2724776632122137207
+      PlayerChop_6: -8004285194585472935
+      PlayerChop_7: 5897008662225800922
+      PlayerChop_8: 9098921590180516239
+      PlayerChop_9: -7932064257325447548
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
