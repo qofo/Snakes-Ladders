@@ -47,7 +47,7 @@ public class Player : MovingObject
         originalColor = spriteRenderer.color;
         food = GameManager.instance.playerFoodPoints;
 
-        foodText.text = "HP: " + food;
+        foodText.text = "DICE: " + dice;
 
         base.Start();                                   // 부모 클래스의 Start함수 호출
     }
@@ -78,6 +78,7 @@ public class Player : MovingObject
         if (Input.GetKeyDown(KeyCode.Space))
         {
             dice = Random.Range(1, 6);
+            foodText.text = "DICE: " + dice;
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
@@ -127,8 +128,8 @@ private void OnTriggerEnter2D(Collider2D other)
     // 이동할 수 있으면 이동하고, 이동할 수 없으면 OnCantMove를 실행하는 함수
     protected override bool AttemptMove<T>(int xDir, int yDir)
     {
-        food--;                                                         // 1회 이동 시도시 포만감 1 감소
-        foodText.text = "HP: " + food;                                // FoodText UI 최신화
+        //food--;                                                         // 1회 이동 시도시 포만감 1 감소
+        //foodText.text = "DICE: " + dice;                                // FoodText UI 최신화
 
         // 이동시 애니메이션
         bool isMovable = base.AttemptMove<T>(xDir, yDir);               // 부모 클래스의 함수 호출

@@ -8,7 +8,10 @@ public class UIManager : MonoBehaviour
     // UI용 변수들
     private Text levelText;                     // 레벨 숫자를 표시할 텍스트 UI
     private GameObject levelImage;              // LevelImage UI의 레퍼런스
-    
+    private GameObject backgroundImage;           // 배경화면
+
+
+
     private GameObject restartButton;           // 시작 버튼 UI
     private Text restartText;                   // 시작 버튼에 들어가는 텍스트 UI
     private GameObject exitButton;              // 게임 종료 버튼 UI
@@ -25,12 +28,16 @@ public class UIManager : MonoBehaviour
         gameoverImage = GameObject.Find("GameoverImage");
         pauseImage = GameObject.Find("PauseImage");
 
+        backgroundImage = GameObject.Find("BackgroundImage");
+
         levelText.text = "Loading...";
         levelImage.SetActive(true);
         restartButton.SetActive(false);
         exitButton.SetActive(false);
         gameoverImage.SetActive(false);
         pauseImage.SetActive(false);
+
+        backgroundImage.SetActive(true);
     }
 
     public void HideLevelImage()
