@@ -101,6 +101,16 @@ public class Player : MovingObject
             movement = GameManager.instance.GetNextMove(1).transform.position - transform.position;
             horizontal = (int)movement.x;
             vertical = (int)movement.y;
+            spriteRenderer.flipX = horizontal < 0;
+        }
+        else if (dice <= 0)
+        {
+            int nextPos = GameManager.instance.CheckLadder(transform.position);
+            if (nextPos != -1)
+            {
+                GameManager.instance.SetNextMove(nextPos);
+                GameManager.instance.GetNextMove();
+            }
         }
 
         //if (horizontal != 0)                                // 만약 수평으로 움직였다면

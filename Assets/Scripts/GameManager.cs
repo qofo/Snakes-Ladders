@@ -127,6 +127,31 @@ public class GameManager : MonoBehaviour
         nowPlayer = n;
     }
 
+    public int CheckLadder(Vector3 pos)
+    {
+        int index = -1;
+        Vector3 nextPos = Vector3.zero;
+        index = boardScript.ladderStartPos.IndexOf(pos);
+        if (index != -1)
+            nextPos = boardScript.ladderEndPos[index];
+        else
+        {
+            index = boardScript.snakeStartPos.IndexOf(pos);
+            if (index != -1)
+                nextPos = boardScript.snakeEndPos[index];
+        }
+
+        if (index == -1)
+            return -1;
+        int floorCount = (int)(boardScript.column * nextPos.y);
+        if ((nextPos.y % 2 == 1))
+            floorCount += (int)(boardScript.column - nextPos.x);
+        else
+            floorCount += (int)(nextPos.x + 1);
+
+        return floorCount;
+    }
+
     // 게임 오버시 Player에 의해서 호출되어 GameManager를 비활성화시키는 함수
     public void GameOver()
     {

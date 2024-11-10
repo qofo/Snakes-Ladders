@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     private Text levelText;                     // 레벨 숫자를 표시할 텍스트 UI
     private GameObject levelImage;              // LevelImage UI의 레퍼런스
     private GameObject backgroundImage;           // 배경화면
+    private GameObject boardImage;               // 바탕 보드판
 
 
 
@@ -29,6 +30,7 @@ public class UIManager : MonoBehaviour
         pauseImage = GameObject.Find("PauseImage");
 
         backgroundImage = GameObject.Find("BackgroundImage");
+        boardImage = GameObject.Find("BoardImage");
 
         levelText.text = "Loading...";
         levelImage.SetActive(true);
@@ -37,7 +39,8 @@ public class UIManager : MonoBehaviour
         gameoverImage.SetActive(false);
         pauseImage.SetActive(false);
 
-        backgroundImage.SetActive(true);
+        backgroundImage.SetActive(false);
+        boardImage.SetActive(false);
     }
 
     public void HideLevelImage()

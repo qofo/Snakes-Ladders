@@ -1,10 +1,34 @@
 fileFormatVersion: 2
-guid: 5a1547f8f7fd99548a4c4e9232da428f
+guid: acf44cbdbd72bbb469c5c263d9165e34
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8604022553160041254
-    second: Pixel_art_style_ladder_sprites_for_a_Snakes_and_La-removebg-preview_0
+      213: -8688392260014441854
+    second: snake_0
+  - first:
+      213: 8964828684589300045
+    second: snake_1
+  - first:
+      213: -3946499141775193120
+    second: snake_2
+  - first:
+      213: 4479720658561634729
+    second: snake_3
+  - first:
+      213: -3399037153431705778
+    second: snake_4
+  - first:
+      213: -4978297785292227087
+    second: snake_5
+  - first:
+      213: 5910609365090145371
+    second: snake_6
+  - first:
+      213: -498161800001825481
+    second: snake_7
+  - first:
+      213: 8314111628943662148
+    second: snake_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +137,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pixel_art_style_ladder_sprites_for_a_Snakes_and_La-removebg-preview_0
+      name: snake_0
       rect:
         serializedVersion: 2
-        x: 176
-        y: 5
-        width: 152
-        height: 476
+        x: 11
+        y: 34
+        width: 148
+        height: 415
       alignment: 9
       pivot: {x: 0.5, y: 0.01}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +151,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 623cd801de0a76770800000000000000
-      internalID: 8604022553160041254
+      spriteID: 28af598c541ac6780800000000000000
+      internalID: -8688392260014441854
       vertices: []
       indices: 
       edges: []
@@ -136,7 +160,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 72a96c31ebcc06148a70ad362460311f
+    spriteID: 887bc70fd5d99c846b53f66a3008646a
     internalID: 0
     vertices: []
     indices: 
@@ -144,7 +168,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Pixel_art_style_ladder_sprites_for_a_Snakes_and_La-removebg-preview_0: 8604022553160041254
+      snake_1: -969750733
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
