@@ -171,6 +171,7 @@ public class BoardManager : MonoBehaviour{
     {
         GameObject instance = Instantiate(toInstantiate, position, Quaternion.identity);
         instance.transform.SetParent(boardHolder);
+        instance.transform.localScale = new Vector3(0.90f, 0.90f, 0f);
 
         // 텍스트 오브젝트 만들기
         GameObject floorText = Instantiate(floorCountText, position, Quaternion.identity);
