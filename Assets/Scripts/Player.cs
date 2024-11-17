@@ -63,7 +63,7 @@ public class Player : MovingObject
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            dice = Random.Range(1, 6);
+            dice = Random.Range(1, 7);
             foodText.text = "DICE: " + dice;
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
