@@ -8,6 +8,9 @@ using static UnityEngine.GraphicsBuffer;
 using Unity.VisualScripting;
 using static UnityEditor.PlayerSettings;
 public class BoardManager : MonoBehaviour{
+    
+    public int snake_num = 10;
+    public int ladder_num = 10;
     [Serializable] //직렬화
     public class Count
     {
@@ -94,10 +97,13 @@ public class BoardManager : MonoBehaviour{
         int start_x, end_x, start_y, end_y;
         GameObject newObject;
         float direction, length;
-        for (int i = 0; i < 40; i++)
+        int former_y = 0;
+        for (int i = 0; i < 4; i++)
         {
             // 사다리 시작 위치 생성(범위 y=0~13)
-            startPos = FindRandomPos(0, column, 0, 14);
+            startPos = FindRandomPos(0, column, former_y, 14);
+            if (startPos == Vector3.zero)
+                continue;
             newObject = Instantiate(ladder, startPos, Quaternion.identity);
 
             // 사다리 도착 위치 생성(범위 x=pos.x-6 ~ pos.x+6, y = y+1 ~ y+4)
@@ -121,13 +127,18 @@ public class BoardManager : MonoBehaviour{
             // 리스트에 추가하기
             ladderStartPos.Add(startPos);
             ladderEndPos.Add(endPos);
+
+            former_y = (int)endPos.y;
         }
 
         // 뱀 만들기
-        for (int i = 0; i < 40; i++)
+        former_y = row - 1;
+        for (int i = 0; i < snake_num; i++)
         {
             // 뱀 시작 위치 생성(범위 y=row-1 ~ row-17)
-            startPos = FindRandomPos(0, column, row - 16, row - 1);
+            startPos = FindRandomPos(0, column, row - 18, former_y);
+            if (startPos == Vector3.zero)
+                continue;
             newObject = Instantiate(snake, startPos, Quaternion.identity);
 
             // 뱀 도착 위치 생성(범위 x=pos.x-6 ~ pos.x+6, y = y-4 ~ y)
@@ -151,6 +162,8 @@ public class BoardManager : MonoBehaviour{
             // 리스트에 추가하기
             snakeStartPos.Add(startPos);
             snakeEndPos.Add(endPos);
+
+            former_y = (int)endPos.y;
         }
 
     }
@@ -179,18 +192,11 @@ public class BoardManager : MonoBehaviour{
 
     }
     // 랜덤 위치
-    Vector3 RandomPosition()
-    {
-        int randomIndex = Random.Range(0, gridPositions.Count);
-        Vector3 randomPosition = gridPositions[randomIndex];
-        gridPositions.RemoveAt(randomIndex);
-        return randomPosition;
-    }
 
     Vector3 FindRandomPos(int x_start, int x_end, int y_start, int y_end)
     {
-        Vector3 position;
-        while (true)
+        Vector3 position = Vector3.zero;
+        for (int i = 0; i < snake_num; i++)
         {
             position = new Vector3(Random.Range(x_start, x_end), Random.Range(y_start, y_end), 0f);
             if (!usedPositions.Contains(position))

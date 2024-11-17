@@ -110,7 +110,11 @@ public class Player : MovingObject
             {
                 GameManager.instance.SetNextMove(nextPos);
                 GameManager.instance.GetNextMove();
+                movement = GameManager.instance.GetNextMove(1).transform.position - transform.position;
+                horizontal = (int)movement.x;
+                vertical = (int)movement.y;
             }
+            //Debug.Log($">> ({transform.position.x}, {transform.position.y})");
         }
 
         //if (horizontal != 0)                                // 만약 수평으로 움직였다면

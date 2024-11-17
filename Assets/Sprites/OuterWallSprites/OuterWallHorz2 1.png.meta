@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      OuterWallHorz2 1_0: 6397828273652032439
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

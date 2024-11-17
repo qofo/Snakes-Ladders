@@ -149,7 +149,7 @@ public class GameManager : MonoBehaviour
         else
             floorCount += (int)(nextPos.x + 1);
 
-        return floorCount;
+        return floorCount - 1;
     }
 
     // 게임 오버시 Player에 의해서 호출되어 GameManager를 비활성화시키는 함수

@@ -65,3 +65,6 @@ crashlytics-build.properties
 
 .vsconfig
 *.dat
+/Assets/StreamingAssets/Datas
+/Assets/StreamingAssets/Datas
+/Assets/StreamingAssets
