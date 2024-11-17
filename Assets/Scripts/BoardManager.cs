@@ -33,7 +33,7 @@ public class BoardManager : MonoBehaviour{
     public GameObject ladder;
     public GameObject snake;
 
-    private Transform canvas;
+    private Transform uiCanvas;
     private GameObject player;
     public GameObject[] floors;
 
@@ -65,8 +65,8 @@ public class BoardManager : MonoBehaviour{
 
         boardHolder = new GameObject ("Board").transform;                                       // 모든 배경 Object의 부모로 둘 오브젝트
         floorTexts = new GameObject("FloorTexts").transform;
-        canvas = GameObject.Find("Canvas").GetComponent<Canvas>().transform;
-        floorTexts.transform.SetParent(canvas);
+        uiCanvas = GameObject.Find("UICanvas").GetComponent<Canvas>().transform;
+        floorTexts.transform.SetParent(uiCanvas);
         player = GameObject.Find("Player");
 
         floors = new GameObject[row * column + 1];
@@ -136,7 +136,7 @@ public class BoardManager : MonoBehaviour{
         for (int i = 0; i < snake_num; i++)
         {
             // 뱀 시작 위치 생성(범위 y=row-1 ~ row-17)
-            startPos = FindRandomPos(0, column, row - 18, former_y);
+            startPos = FindRandomPos(0, column, row - 18, row-1);
             if (startPos == Vector3.zero)
                 continue;
             newObject = Instantiate(snake, startPos, Quaternion.identity);

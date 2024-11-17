@@ -39,7 +39,7 @@ public class UIManager : MonoBehaviour
         gameoverImage.SetActive(false);
         pauseImage.SetActive(false);
 
-        backgroundImage.SetActive(false);
+        //backgroundImage.SetActive(false);
         boardImage.SetActive(false);
     }
 
