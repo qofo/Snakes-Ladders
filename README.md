@@ -1,3 +1,8 @@
-# 2024-1 TML 제작프로젝트 5조
-# 프로젝트 소개
-이 게임은 자신의 모습을 몰래 괴물로 바꿔버린 박사를 쫓는 2D 로그라이크 게임입니다. 주인공은 박사로 의해 변해버린 괴물의 모습에서 돌아가기 위해 탑의 정상으로 향합니다.
+## 테스트 씬 실행
+
+Snakes&Ladders\Assets\Scenes\MainScene.unity
+
+## 주사위 적용하는 부분
+
+Snakes&Ladders\Assets\Scenes\Scripts\Player.cs
+66번째 줄
