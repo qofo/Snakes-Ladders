@@ -75,9 +75,14 @@ public class Player : MovingObject
             if (nextTile == GameManager.instance.boardScript.bossTile)
             {
                 dice = 0;
+
             }
             else if (nextTile == GameManager.instance.boardScript.shopTile)
-                movement = nextTile.transform.position - transform.position;
+            {
+                dice = 0;
+            }
+
+            movement = nextTile.transform.position - transform.position;
             horizontal = (int)movement.x;
             vertical = (int)movement.y;
             spriteRenderer.flipX = horizontal < 0;
