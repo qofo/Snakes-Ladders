@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
         pauseImage = GameObject.Find("PauseImage");
 
         backgroundImage = GameObject.Find("BackgroundImage");
-        boardImage = GameObject.Find("BoardImage");
+        //boardImage = GameObject.Find("BoardImage");
 
         levelText.text = "Loading...";
         levelImage.SetActive(true);
@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour
         pauseImage.SetActive(false);
 
         //backgroundImage.SetActive(false);
-        boardImage.SetActive(false);
+        //boardImage.SetActive(false);
     }
 
     public void HideLevelImage()

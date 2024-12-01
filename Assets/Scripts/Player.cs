@@ -30,6 +30,7 @@ public class Player : MovingObject
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        diceText = GameObject.Find("FoodText").GetComponent<Text>();
 
         diceText.text = "DICE: " + dice;
 
@@ -70,7 +71,13 @@ public class Player : MovingObject
         if (dice > 0)
         {
             dice--;
-            movement = GameManager.instance.GetNextMove(1).transform.position - transform.position;
+            GameObject nextTile = GameManager.instance.GetNextMove(1);
+            if (nextTile == GameManager.instance.boardScript.bossTile)
+            {
+                dice = 0;
+            }
+            else if (nextTile == GameManager.instance.boardScript.shopTile)
+                movement = nextTile.transform.position - transform.position;
             horizontal = (int)movement.x;
             vertical = (int)movement.y;
             spriteRenderer.flipX = horizontal < 0;
@@ -120,7 +127,7 @@ public class Player : MovingObject
             SoundManager.instance.RandomizeSfx(moveSound1, moveSound2); // 이동 했으면 소리 재생하기
 
 
-        CheckIfGameOver();
+        //CheckIfGameOver();
 
         GameManager.instance.playersTurn = false;
 

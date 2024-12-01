@@ -29,6 +29,8 @@ public class BoardManager : MonoBehaviour{
     //8*8
 
     public GameObject[] floorTiles;
+    public GameObject bossTile;
+    public GameObject shopTile;
     public GameObject floorCountText;
     public GameObject ladder;
     public GameObject snake;
@@ -79,7 +81,7 @@ public class BoardManager : MonoBehaviour{
                 GameObject toInstantiate = floorTiles[(x%2 + y%2)%2];
                 //if (x == -1 || x == column || y == -1 || y == row)
                 //  toInstantiate = outerWallTiles[Random.Range (0,outerWallTiles.Length)];
-                createInstance(toInstantiate, new Vector3(x, y, 1f));
+                createFloor(toInstantiate, new Vector3(x, y, 1f));
             }
         }
 
@@ -90,6 +92,19 @@ public class BoardManager : MonoBehaviour{
         gridPositions.RemoveAt(0);
         usedPositions.Add(nextPos);
 
+        // 보스 타일 만들기
+        nextPos = floors[column * row].transform.position;
+        GameObject temp = floors[(column * row)];
+        floors[(column * row)] = Instantiate(bossTile, nextPos, Quaternion.identity);
+        Destroy(temp);
+        usedPositions.Add(nextPos);
+
+        nextPos = floors[column * row / 2].transform.position;
+        temp = floors[column * row / 2];
+        floors[column * row / 2] = Instantiate(bossTile, nextPos, Quaternion.identity);
+        Destroy(temp);
+        usedPositions[0] = nextPos;
+
         
         // 사다리 만들기
         Vector3 startPos;
@@ -97,11 +112,10 @@ public class BoardManager : MonoBehaviour{
         int start_x, end_x, start_y, end_y;
         GameObject newObject;
         float direction, length;
-        int former_y = 0;
         for (int i = 0; i < 4; i++)
         {
             // 사다리 시작 위치 생성(범위 y=0~13)
-            startPos = FindRandomPos(0, column, former_y, 14);
+            startPos = FindRandomPos(0, column, 0, 14);
             if (startPos == Vector3.zero)
                 continue;
             newObject = Instantiate(ladder, startPos, Quaternion.identity);
@@ -127,12 +141,9 @@ public class BoardManager : MonoBehaviour{
             // 리스트에 추가하기
             ladderStartPos.Add(startPos);
             ladderEndPos.Add(endPos);
-
-            former_y = (int)endPos.y;
         }
 
         // 뱀 만들기
-        former_y = row - 1;
         for (int i = 0; i < snake_num; i++)
         {
             // 뱀 시작 위치 생성(범위 y=row-1 ~ row-17)
@@ -162,12 +173,25 @@ public class BoardManager : MonoBehaviour{
             // 리스트에 추가하기
             snakeStartPos.Add(startPos);
             snakeEndPos.Add(endPos);
+        }
 
-            former_y = (int)endPos.y;
+        // 상점 타일 만들기
+        for (int i = 0; i < 15; i++)
+        {
+            nextPos = FindRandomPos(0, column, 0, row);
+            int x = (int)nextPos.x, y = (int)nextPos.y;
+            int floorCount = column * y;
+            if ((y % 2 == 1))
+                floorCount += column - x;
+            else
+                floorCount += x + 1;
+            temp = floors[floorCount];
+            floors[floorCount] = Instantiate(shopTile, nextPos, Quaternion.identity);
+            Destroy(temp);
         }
 
     }
-    void createInstance(GameObject toInstantiate, Vector3 position)
+    void createFloor(GameObject toInstantiate, Vector3 position)
     {
         GameObject instance = Instantiate(toInstantiate, position, Quaternion.identity);
         instance.transform.SetParent(boardHolder);
@@ -192,8 +216,8 @@ public class BoardManager : MonoBehaviour{
         floors[floorCount] = instance;
 
     }
-    // 랜덤 위치
 
+    // 랜덤 위치
     Vector3 FindRandomPos(int x_start, int x_end, int y_start, int y_end)
     {
         Vector3 position = Vector3.zero;
