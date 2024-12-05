@@ -41,6 +41,8 @@ public class BoardManager : MonoBehaviour{
 
     private Transform floorTexts;
     private Transform boardHolder;//계층 정리용, 모든 오브젝트의 부모
+    private Transform ladderHolder;
+    private Transform snakeHolder;
     private List <Vector3> gridPositions =  new List<Vector3>(); // 오브젝트  위치 저장
     private List<Vector3> usedPositions = new List<Vector3>(); // 뱀 또는 사다리가 있는 타일
 
@@ -66,6 +68,8 @@ public class BoardManager : MonoBehaviour{
         InitializeList();
 
         boardHolder = new GameObject ("Board").transform;                                       // 모든 배경 Object의 부모로 둘 오브젝트
+        ladderHolder = new GameObject("Ladders").transform;
+        snakeHolder = new GameObject("Snakes").transform;
         floorTexts = new GameObject("FloorTexts").transform;
         uiCanvas = GameObject.Find("UICanvas").GetComponent<Canvas>().transform;
         floorTexts.transform.SetParent(uiCanvas);
@@ -96,12 +100,14 @@ public class BoardManager : MonoBehaviour{
         nextPos = floors[column * row].transform.position;
         GameObject temp = floors[(column * row)];
         floors[(column * row)] = Instantiate(bossTile, nextPos, Quaternion.identity);
+        floors[(column * row)].transform.SetParent(boardHolder);
         Destroy(temp);
         usedPositions.Add(nextPos);
 
         nextPos = floors[column * row / 2].transform.position;
         temp = floors[column * row / 2];
         floors[column * row / 2] = Instantiate(bossTile, nextPos, Quaternion.identity);
+        floors[column * row / 2].transform.SetParent(boardHolder);
         Destroy(temp);
         usedPositions[0] = nextPos;
 
@@ -119,6 +125,7 @@ public class BoardManager : MonoBehaviour{
             if (startPos == Vector3.zero)
                 continue;
             newObject = Instantiate(ladder, startPos, Quaternion.identity);
+            newObject.transform.SetParent(ladderHolder);
 
             // 사다리 도착 위치 생성(범위 x=pos.x-6 ~ pos.x+6, y = y+1 ~ y+4)
             start_x = (int)((startPos.x - 6 > 0) ? startPos.x - 6 : 0);
@@ -128,7 +135,6 @@ public class BoardManager : MonoBehaviour{
             endPos = (FindRandomPos(start_x, end_x, start_y, end_y));
 
             //Debug.Log($"ladder({startPos.x}, {startPos.y}) ({endPos.x}, {endPos.y})");
-
 
             // 세로로 세워진(-90인) 스프라이트라 시작-끝 벡터에서 90도를 빼야 함
             direction = Mathf.Atan2(endPos.y - startPos.y, endPos.x - startPos.x) * Mathf.Rad2Deg - 90;
@@ -151,6 +157,7 @@ public class BoardManager : MonoBehaviour{
             if (startPos == Vector3.zero)
                 continue;
             newObject = Instantiate(snake, startPos, Quaternion.identity);
+            newObject.transform.SetParent(snakeHolder);
 
             // 뱀 도착 위치 생성(범위 x=pos.x-6 ~ pos.x+6, y = y-4 ~ y)
             start_x = (int)((startPos.x - 6 > 0) ? startPos.x - 6 : 0);
@@ -221,7 +228,7 @@ public class BoardManager : MonoBehaviour{
     Vector3 FindRandomPos(int x_start, int x_end, int y_start, int y_end)
     {
         Vector3 position = Vector3.zero;
-        for (int i = 0; i < snake_num; i++)
+        for (int i = 0; i < 20; i++)
         {
             position = new Vector3(Random.Range(x_start, x_end), Random.Range(y_start, y_end), 0f);
             if (!usedPositions.Contains(position))

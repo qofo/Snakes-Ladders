@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     // Player용 변수들
     public int playerFoodPoints = 100;                  // 플레이어 포만감
     [HideInInspector] public bool playersTurn = true;   // 
+    [HideInInspector] public bool shopping = false;
     public int nowPlayer = 1;
     // Enemy용 변수들
     public float turnDelay = 0.5f;                      // 각 턴 사이 대기시간
@@ -61,7 +62,7 @@ public class GameManager : MonoBehaviour
     }*/
     void Update()
     {
-        if (playersTurn || doingCoroutine || doingSetup)
+        if (playersTurn || doingCoroutine || doingSetup || shopping)
             return;
 
         StartCoroutine(CoroutineExample());
@@ -142,7 +143,7 @@ public class GameManager : MonoBehaviour
         else
             floorCount += (int)(nextPos.x + 1);
 
-        return floorCount - 1;
+        return floorCount - 2;
     }
 
     // 게임 오버시 Player에 의해서 호출되어 GameManager를 비활성화시키는 함수
@@ -199,6 +200,19 @@ public class GameManager : MonoBehaviour
         {  
             enabled = false;
             Time.timeScale = 0;
+        }
+    }
+
+    // ShoppingButton이 실행해서 상점창을 여는 함수
+    public void OpenShop()
+    {
+        if (uiManager.ToggleShop())
+        {
+            shopping = false;
+        }
+        else
+        { 
+            shopping = true; 
         }
     }
 }

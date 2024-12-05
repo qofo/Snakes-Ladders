@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     private GameObject exitButton;              // 게임 종료 버튼 UI
     private GameObject gameoverImage;           // 게임종료시 이미지
     private GameObject pauseImage;              // 일시 정지 시 이미지
+    private GameObject shopImage;
     
     public void InitMainUI(int level)
     {
@@ -30,7 +31,7 @@ public class UIManager : MonoBehaviour
         pauseImage = GameObject.Find("PauseImage");
 
         backgroundImage = GameObject.Find("BackgroundImage");
-        //boardImage = GameObject.Find("BoardImage");
+        shopImage = GameObject.Find("ShopImage");
 
         levelText.text = "Loading...";
         levelImage.SetActive(true);
@@ -38,6 +39,7 @@ public class UIManager : MonoBehaviour
         exitButton.SetActive(false);
         gameoverImage.SetActive(false);
         pauseImage.SetActive(false);
+        shopImage.SetActive(false);
 
         //backgroundImage.SetActive(false);
         //boardImage.SetActive(false);
@@ -71,15 +73,25 @@ public class UIManager : MonoBehaviour
     // 이미 Pause되어 있으면 true, 아니면 false를 반환하고 PauseImage를 끄고 킴
     public bool IsPaused()
     {
-        if (pauseImage.activeSelf == false)
+        return ToggleUI(pauseImage);
+    }
+
+    public bool ToggleUI(GameObject ui)
+    {
+        if (ui.activeSelf == false)
         {
-            pauseImage.SetActive(true);
+            ui.SetActive(true);
             return false;
         }
         else
         {
-            pauseImage.SetActive(false);
+            ui.SetActive(false);
             return true;
         }
+    }
+
+    public bool ToggleShop()
+    {
+        return ToggleUI(shopImage);
     }
 }

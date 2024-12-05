@@ -20,6 +20,16 @@ public class ButtonController : MonoBehaviour
         GameManager.instance.Pause();
     }
 
+    public void OnShoppingButtonClick()
+    {
+        GameManager.instance.OpenShop();
+        this.gameObject.SetActive(false);
+    }
+    public void OnShopBackButtonClick()
+    {
+        GameManager.instance.OpenShop();
+    }
+
     /* TitleScene 버튼용 함수들 */
     public void OnStartButtonClick()
     {

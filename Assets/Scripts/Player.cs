@@ -23,7 +23,9 @@ public class Player : MovingObject
     private SpriteRenderer spriteRenderer;  // 플레이어의 SpriteRenderer 컴포넌트
 
     private int dice = 0;
+    private bool waitingShopping = false;
 
+    private GameObject shoppingButton;
 
     /* 유니티 API 함수들 */
     protected override void Start()
@@ -31,6 +33,8 @@ public class Player : MovingObject
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         diceText = GameObject.Find("FoodText").GetComponent<Text>();
+        shoppingButton = GameObject.Find("ShoppingButton");
+        shoppingButton.SetActive(false);
 
         diceText.text = "DICE: " + dice;
 
@@ -52,7 +56,17 @@ public class Player : MovingObject
             GameManager.instance.Pause();
             return;
         }
-        if (!GameManager.instance.playersTurn || !GameManager.instance.enabled) return;
+        if (!GameManager.instance.playersTurn || !GameManager.instance.enabled || GameManager.instance.shopping) return;
+        if (waitingShopping)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                waitingShopping = false;
+                shoppingButton.SetActive(false);
+            }
+
+            return;
+        }
 
         int horizontal = 0;
         int vertical = 0;
@@ -72,14 +86,15 @@ public class Player : MovingObject
         {
             dice--;
             GameObject nextTile = GameManager.instance.GetNextMove(1);
-            if (nextTile == GameManager.instance.boardScript.bossTile)
+            if (nextTile.tag == "BossTile")
             {
                 dice = 0;
-
+                SceneManager.LoadScene("BattleScene", LoadSceneMode.Single);
             }
-            else if (nextTile == GameManager.instance.boardScript.shopTile)
+            else if (nextTile.tag == "ShopTile")
             {
-                dice = 0;
+                waitingShopping = true;
+                shoppingButton.SetActive(true);
             }
 
             movement = nextTile.transform.position - transform.position;
